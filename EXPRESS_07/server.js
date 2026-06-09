@@ -26,20 +26,11 @@ app.get('/total_clientes',(req,res)=>{
 
 //rota para apresentar dados de um cliente específico
 app.get('/clientes/:id',(req,res)=>{
-    const cliente = clientes.find(c=>c.id ===parseInt(req.params.id))
+    const cliente = clientes.find(c => c.id === parseInt(req.params.id));
 
-    //não acha cliente
-    if(!cliente){
-        res.status(404).send("Cliente não encontrado!!")
+    if (!cliente) {
+        return res.status(404).send('Cliente não encontrado!!');
     }
-    res.send(`O cliente é: ${cliente.nome}, telefone: ${cliente.fone}, email: ${cliente.email}`);
-})//rota para apresentar dados de um cliente específico
-app.get('/clientes/:id',(req,res)=>{
-    const cliente = clientes.find(c=>c.id ===parseInt(req.params.id))
 
-    //não acha cliente
-    if(!cliente){
-        res.status(404).send("Cliente não encontrado!!")
-    }
     res.send(`O cliente é: ${cliente.nome}, telefone: ${cliente.fone}, email: ${cliente.email}`);
-})
+});

@@ -10,11 +10,11 @@ server.use((req,res,next)=>{
 })
 
 server.use((req,res,next)=>{
-    req.resquestTime=Date.now();
+    req.requestTime = Date.now();
     next();
 })
 
 server.get('/',(req,res)=>{
     res.send('<h1>Teste de Entrada 3</h1>');
-    console.log(req.resquestTime);
+    console.log(req.requestTime);
 })
